@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "400277749061",
+    "firebase_url": "https://learning-204b9.firebaseio.com",
+    "project_id": "learning-204b9",
+    "storage_bucket": "learning-204b9.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:400277749061:android:57bca5492e68a5d6",
+        "android_client_info": {
+          "package_name": "com.cogitator.firbasemlkit"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "400277749061-qich8cfe1llqptq6s9kq4nvcg2ifq0c2.apps.googleusercontent.com",
+          "client_type": 3
+        },
+        {
+          "client_id": "400277749061-qich8cfe1llqptq6s9kq4nvcg2ifq0c2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC-viB1ZZkkC8CCBZQ8fpW6FGhC__vE-oc"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
