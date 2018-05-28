@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">Firebase MLKit</string>
-    <string name="mlkit">ML Kit</string>
+    <string name="mlkit">Firebase \nML Kit</string>
+    <string name="recognize">Recognize</string>
 </resources>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.wonderkiln.camerakit.CameraView
+        android:id="@+id/camView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <com.cogotator.firbasemlkit.text_recognizer.GraphicOverlay
+        android:id="@+id/graphic_overlay"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true" />
+
+
+    <Button
+        android:id="@+id/cameraBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:text="@string/recognize" />
+
+    <ImageView
+        android:id="@+id/imgCamera"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+</FrameLayout>

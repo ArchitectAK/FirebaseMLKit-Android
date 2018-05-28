@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.cogitator.firbasemlkit">
+    package="com.cogitator.firebasemlkit">
 
     <application
         android:allowBackup="true"
@@ -22,3 +22,4 @@
         <activity android:name=".text_recognizer.TextRecognizerActivity" />
     </application>
 </manifest>
+

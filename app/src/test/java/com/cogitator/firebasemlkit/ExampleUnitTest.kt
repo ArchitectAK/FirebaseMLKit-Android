@@ -1,4 +1,4 @@
-package com.cogitator.firbasemlkit
+package com.cogitator.firebasemlkit
 
 import org.junit.Test
 

@@ -1,4 +1,4 @@
-package com.cogitator.firbasemlkit
+package com.cogitator.firebasemlkit
 
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity

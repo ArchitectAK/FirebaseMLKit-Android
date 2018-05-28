@@ -1,4 +1,4 @@
-package com.cogitator.firbasemlkit
+package com.cogitator.firebasemlkit
 
 import android.support.test.InstrumentationRegistry
 import android.support.test.runner.AndroidJUnit4

@@ -5,10 +5,14 @@
     android:background="@color/colorPrimary"
     android:orientation="vertical">
 
-    <TextView
+    <ImageView
+        android:id="@+id/fire"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true" />
+        android:layout_above="@+id/logo"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/firebase_28dp"
+        android:visibility="visible" />
 
     <ImageView
         android:id="@+id/bg"
@@ -22,17 +26,25 @@
         android:src="@drawable/mlkit_fore_" />
 
     <TextView
+        android:id="@+id/logo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_above="@+id/bg"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="20dp"
-        android:drawableLeft="@drawable/firebase_28dp"
+        android:layout_marginBottom="30dp"
         android:gravity="center"
         android:text="@string/mlkit"
         android:textColor="@color/colorAccent"
         android:textSize="20sp"
         android:textStyle="bold" />
+
+    <ProgressBar
+        style="@style/Base.Widget.AppCompat.ProgressBar.Horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/fire"
+        android:layout_centerHorizontal="true"
+        android:progressTint="@color/colorAccent" />
 
 
 </RelativeLayout>
