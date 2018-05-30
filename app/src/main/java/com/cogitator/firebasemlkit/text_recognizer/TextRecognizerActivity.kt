@@ -34,8 +34,8 @@ class TextRecognizerActivity : AppCompatActivity() {
 
             override fun onImage(cameraKitImage: CameraKitImage) {
 
-                var bitmap = cameraKitImage.getBitmap()
-                bitmap = Bitmap.createScaledBitmap(bitmap, camView.getWidth(), camView.getHeight(), false)
+                var bitmap = cameraKitImage.bitmap
+                bitmap = Bitmap.createScaledBitmap(bitmap, camView.width, camView.height, false)
                 camView.stop()
                 runTextRecognition(bitmap)
 
@@ -48,7 +48,7 @@ class TextRecognizerActivity : AppCompatActivity() {
 
         cameraBtn.setOnClickListener(object : View.OnClickListener() {
             override fun onClick(v: View) {
-                mGraphicOverlay.clear()
+                graphic_overlay.clear()
                 camView.start()
                 camView.captureImage()
 
@@ -60,7 +60,7 @@ class TextRecognizerActivity : AppCompatActivity() {
     private fun runTextRecognition(bitmap: Bitmap) {
         val image = FirebaseVisionImage.fromBitmap(bitmap)
         val detector = FirebaseVision.getInstance()
-                .getVisionTextDetector()
+                .visionTextDetector
         detector.detectInImage(image)
                 .addOnSuccessListener(
                         OnSuccessListener<Any> { texts -> processTextRecognitionResult(texts) })
@@ -72,19 +72,19 @@ class TextRecognizerActivity : AppCompatActivity() {
     }
 
     private fun processTextRecognitionResult(texts: FirebaseVisionText) {
-        val blocks = texts.getBlocks()
+        val blocks = texts.blocks
         if (blocks.size == 0) {
             Log.d("TAG", "No text found")
             return
         }
-        mGraphicOverlay.clear()
+        graphic_overlay.clear()
         for (i in blocks.indices) {
-            val lines = blocks.get(i).getLines()
+            val lines = blocks.get(i).lines
             for (j in lines.indices) {
-                val elements = lines.get(j).getElements()
+                val elements = lines.get(j).elements
                 for (k in elements.indices) {
-                    val textGraphic = TextGraphic(mGraphicOverlay, elements.get(k))
-                    mGraphicOverlay.add(textGraphic)
+                    val textGraphic = TextGraphic(graphic_overlay, elements.get(k))
+                    graphic_overlay.add(textGraphic)
 
                 }
             }
