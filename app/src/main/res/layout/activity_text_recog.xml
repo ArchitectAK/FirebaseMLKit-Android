@@ -8,8 +8,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 
-    <com.cogotator.firbasemlkit.text_recognizer.GraphicOverlay
-        android:id="@+id/graphic_overlay"
+    <com.cogitator.firebasemlkit.text_recognizer.GraphicOverlay
+        android:id="@+id/graphic_overlay_"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_alignParentBottom="true"

@@ -4,10 +4,7 @@ import android.graphics.Bitmap
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.util.Log
-import android.view.View
 import com.cogitator.firebasemlkit.R
-import com.google.android.gms.tasks.OnFailureListener
-import com.google.android.gms.tasks.OnSuccessListener
 import com.google.firebase.ml.vision.FirebaseVision
 import com.google.firebase.ml.vision.common.FirebaseVisionImage
 import com.google.firebase.ml.vision.text.FirebaseVisionText
@@ -23,7 +20,7 @@ class TextRecognizerActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_text_recog)
 
-        camView.addCameraKitListener(object : CameraKitEventListener() {
+        camView.addCameraKitListener(object : CameraKitEventListener {
             override fun onEvent(cameraKitEvent: CameraKitEvent) {
 
             }
@@ -46,14 +43,11 @@ class TextRecognizerActivity : AppCompatActivity() {
             }
         })
 
-        cameraBtn.setOnClickListener(object : View.OnClickListener() {
-            override fun onClick(v: View) {
-                graphic_overlay.clear()
-                camView.start()
-                camView.captureImage()
-
-            }
-        })
+        cameraBtn.setOnClickListener {
+            graphic_overlay_.clear()
+            camView.start()
+            camView.captureImage()
+        }
 
     }
 
@@ -63,9 +57,9 @@ class TextRecognizerActivity : AppCompatActivity() {
                 .visionTextDetector
         detector.detectInImage(image)
                 .addOnSuccessListener(
-                        OnSuccessListener<Any> { texts -> processTextRecognitionResult(texts) })
+                        { texts -> processTextRecognitionResult(texts as FirebaseVisionText) })
                 .addOnFailureListener(
-                        OnFailureListener { e ->
+                        { e ->
                             // Task failed with an exception
                             e.printStackTrace()
                         })
@@ -77,14 +71,14 @@ class TextRecognizerActivity : AppCompatActivity() {
             Log.d("TAG", "No text found")
             return
         }
-        graphic_overlay.clear()
+        graphic_overlay_.clear()
         for (i in blocks.indices) {
             val lines = blocks.get(i).lines
             for (j in lines.indices) {
-                val elements = lines.get(j).elements
+                val elements = lines[j].elements
                 for (k in elements.indices) {
-                    val textGraphic = TextGraphic(graphic_overlay, elements.get(k))
-                    graphic_overlay.add(textGraphic)
+                    val textGraphic = TextGraphic(graphic_overlay_, elements[k])
+                    graphic_overlay_.add(textGraphic)
 
                 }
             }
