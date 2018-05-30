@@ -19,7 +19,7 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-        <activity android:name=".text_recognizer.TextRecognizerActivity" />
+        <activity android:name=".textRecognizer.TextRecognizerActivity" />
     </application>
 </manifest>
 

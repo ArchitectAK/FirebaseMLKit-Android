@@ -1,4 +1,4 @@
-package com.cogitator.firebasemlkit.text_recognizer
+package com.cogitator.firebasemlkit.textRecognizer
 
 import android.content.Context
 import android.graphics.Canvas
