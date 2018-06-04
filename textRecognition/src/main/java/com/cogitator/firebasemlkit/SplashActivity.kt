@@ -17,9 +17,11 @@ class SplashActivity : AppCompatActivity() {
         requestWindowFeature(Window.FEATURE_NO_TITLE)
         this.window.setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN)
         setContentView(R.layout.activity_spalsh)
+
         Handler().postDelayed({
             startActivity(Intent(this@SplashActivity, TextRecognizerActivity::class.java))
             finish()
         }, 500)
     }
+
 }
