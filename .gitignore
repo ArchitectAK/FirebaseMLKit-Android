@@ -9,5 +9,4 @@
 /captures
 .externalNativeBuild
 libs/
-src/main/java/
 /google-services.json
