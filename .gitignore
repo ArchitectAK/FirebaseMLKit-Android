@@ -10,3 +10,4 @@
 .externalNativeBuild
 libs/
 /google-services.json
+/facedetection/google-services.json

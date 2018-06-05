@@ -1,5 +1,6 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
 
 android {
     compileSdkVersion 27
@@ -35,6 +36,8 @@ dependencies {
     implementation "com.android.support:animated-vector-drawable:$supprt_version"
     implementation "com.android.support:exifinterface:$supprt_version"
     implementation "com.android.support:support-media-compat:$supprt_version"
+    implementation 'com.android.support.constraint:constraint-layout:1.1.0'
+
 
     implementation 'com.google.firebase:firebase-core:16.0.0'
     implementation 'com.google.firebase:firebase-ml-vision:16.0.0'
@@ -42,3 +45,5 @@ dependencies {
 repositories {
     mavenCentral()
 }
+
+apply plugin: 'com.google.gms.google-services'

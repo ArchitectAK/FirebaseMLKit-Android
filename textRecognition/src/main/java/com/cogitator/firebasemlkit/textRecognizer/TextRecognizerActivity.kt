@@ -20,8 +20,6 @@ class TextRecognizerActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_text_recog)
 
-
-
         camView.addCameraKitListener(object : CameraKitEventListener {
             override fun onEvent(cameraKitEvent: CameraKitEvent) {
 
