@@ -16,7 +16,8 @@ And here its recogizing text from camera
 <img src="https://github.com/AnkitDroidGit/FirebaseMLKit-Android/blob/master/art/4.png"  width="400" height="700">
 <img src="https://github.com/AnkitDroidGit/FirebaseMLKit-Android/blob/master/art/3.png"  width="400" height="700">
 
-
+## Tutorial for text Recognition can be found
+- [here](https://medium.com/@cogitator/working-with-firebase-ml-kit-in-android-app-text-recognition-on-device-7fceb9a0a307)
 
 ### Would you like to buy me a cup of coffee?
 #### I'd appreciate even your little contribution to my work, it helps me keep this Open Source updated. If this project helped you or your business and if you feel like donating some bucks, you can Paypal me - ankitdroiddeveloper@gmail.com
