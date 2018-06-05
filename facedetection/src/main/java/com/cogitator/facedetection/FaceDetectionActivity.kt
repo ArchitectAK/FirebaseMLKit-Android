@@ -11,20 +11,16 @@ import android.os.Environment
 import android.provider.MediaStore
 import android.support.v4.content.FileProvider
 import android.support.v7.app.AppCompatActivity
-import com.cogitator.facedetection.R.id.button_capture_
-import com.cogitator.facedetection.R.id.image_view_
-import com.google.android.gms.tasks.OnSuccessListener
 import com.google.firebase.FirebaseApp
 import com.google.firebase.ml.vision.FirebaseVision
 import com.google.firebase.ml.vision.common.FirebaseVisionImage
-import com.google.firebase.ml.vision.face.FirebaseVisionFace
 import com.google.firebase.ml.vision.face.FirebaseVisionFaceDetectorOptions
 import com.google.firebase.ml.vision.face.FirebaseVisionFaceLandmark
+import kotlinx.android.synthetic.main.activity_face_detection.*
 import java.io.File
 import java.io.IOException
 import java.text.SimpleDateFormat
 import java.util.*
-import kotlinx.android.synthetic.main.activity_face_detection.*
 
 
 /**
