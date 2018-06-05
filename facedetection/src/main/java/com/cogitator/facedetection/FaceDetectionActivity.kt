@@ -11,9 +11,13 @@ import android.os.Environment
 import android.provider.MediaStore
 import android.support.v4.content.FileProvider
 import android.support.v7.app.AppCompatActivity
+import com.cogitator.facedetection.R.id.button_capture_
+import com.cogitator.facedetection.R.id.image_view_
+import com.google.android.gms.tasks.OnSuccessListener
 import com.google.firebase.FirebaseApp
 import com.google.firebase.ml.vision.FirebaseVision
 import com.google.firebase.ml.vision.common.FirebaseVisionImage
+import com.google.firebase.ml.vision.face.FirebaseVisionFace
 import com.google.firebase.ml.vision.face.FirebaseVisionFaceDetectorOptions
 import com.google.firebase.ml.vision.face.FirebaseVisionFaceLandmark
 import java.io.File
@@ -84,6 +88,7 @@ class FaceDetectionActivity : AppCompatActivity() {
     }
 
     private fun addEmojis(photo: Bitmap) {
+
         val emojiPhoto = photo.copy(Bitmap.Config.ARGB_8888, true)
         val canvas = Canvas(emojiPhoto)
 
@@ -97,57 +102,56 @@ class FaceDetectionActivity : AppCompatActivity() {
         val image = FirebaseVisionImage.fromBitmap(photo)
         val detector = FirebaseVision.getInstance()
                 .getVisionFaceDetector(options)
-        var result = detector.detectInImage(image)
-                .addOnSuccessListener({
 
+        detector.detectInImage(image).addOnSuccessListener {
 
-                    // Task completed successfully
-                    for (face in it) {
+            // Task completed successfully
+            for (face in it) {
 
-                        val leftEye = face.getLandmark(FirebaseVisionFaceLandmark.LEFT_EYE)
-                        val rightEye = face.getLandmark(FirebaseVisionFaceLandmark.RIGHT_EYE)
-                        val nose = face.getLandmark(FirebaseVisionFaceLandmark.NOSE_BASE)
-                        val mouth = face.getLandmark(FirebaseVisionFaceLandmark.LEFT_MOUTH)
+                val leftEye = face.getLandmark(FirebaseVisionFaceLandmark.LEFT_EYE)
+                val rightEye = face.getLandmark(FirebaseVisionFaceLandmark.RIGHT_EYE)
+                val nose = face.getLandmark(FirebaseVisionFaceLandmark.NOSE_BASE)
+                val mouth = face.getLandmark(FirebaseVisionFaceLandmark.LEFT_MOUTH)
 
-                        if (leftEye != null) {
-                            val leftEyePosition = leftEye.position
-                            var bitmap = BitmapFactory.decodeResource(resources, R.drawable.ic_remove_red_eye_black_24dp)
-                            val width = bitmap.width * 3
-                            val height = bitmap.height * 3
-                            bitmap = Bitmap.createScaledBitmap(bitmap, width, height, false)
-                            canvas.drawBitmap(bitmap, leftEyePosition.x - width / 2, leftEyePosition.y - height / 2, null)
-                        }
+                if (leftEye != null) {
+                    val leftEyePosition = leftEye.position
+                    var bitmap = BitmapFactory.decodeResource(resources, R.drawable.ic_remove_red_eye_black_24dp)
+                    val width = bitmap.width * 3
+                    val height = bitmap.height * 3
+                    bitmap = Bitmap.createScaledBitmap(bitmap, width, height, false)
+                    canvas.drawBitmap(bitmap, leftEyePosition.x - width / 2, leftEyePosition.y - height / 2, null)
+                }
 
-                        if (rightEye != null) {
-                            val rightEyePosition = rightEye.position
-                            var bitmap = BitmapFactory.decodeResource(resources, R.drawable.ic_remove_red_eye_black_24dp)
-                            val width = bitmap.width * 3
-                            val height = bitmap.height * 3
-                            bitmap = Bitmap.createScaledBitmap(bitmap, width, height, false)
-                            canvas.drawBitmap(bitmap, rightEyePosition.x - width / 2, rightEyePosition.y - height / 2, null)
-                        }
+                if (rightEye != null) {
+                    val rightEyePosition = rightEye.position
+                    var bitmap = BitmapFactory.decodeResource(resources, R.drawable.ic_remove_red_eye_black_24dp)
+                    val width = bitmap.width * 3
+                    val height = bitmap.height * 3
+                    bitmap = Bitmap.createScaledBitmap(bitmap, width, height, false)
+                    canvas.drawBitmap(bitmap, rightEyePosition.x - width / 2, rightEyePosition.y - height / 2, null)
+                }
 
-                        if (nose != null) {
-                            val nosePosition = nose.position
-                            var bitmap = BitmapFactory.decodeResource(resources, R.drawable.ic_music_note_black_24dp)
-                            val width = bitmap.width * 3
-                            val height = bitmap.height * 3
-                            bitmap = Bitmap.createScaledBitmap(bitmap, width, height, false)
-                            canvas.drawBitmap(bitmap, nosePosition.x - width / 2, nosePosition.y - height, null)
-                        }
+                if (nose != null) {
+                    val nosePosition = nose.position
+                    var bitmap = BitmapFactory.decodeResource(resources, R.drawable.ic_music_note_black_24dp)
+                    val width = bitmap.width * 3
+                    val height = bitmap.height * 3
+                    bitmap = Bitmap.createScaledBitmap(bitmap, width, height, false)
+                    canvas.drawBitmap(bitmap, nosePosition.x - width / 2, nosePosition.y - height, null)
+                }
 
-                        if (mouth != null) {
-                            val mouthPosition = mouth.position
-                            var bitmap = BitmapFactory.decodeResource(resources, R.drawable.ic_mouse_black_24dp)
-                            val width = bitmap.width * 4
-                            val height = bitmap.height * 4
-                            bitmap = Bitmap.createScaledBitmap(bitmap, width, height, false)
-                            canvas.drawBitmap(bitmap, mouthPosition.x - width, mouthPosition.y - height / 2, null)
-                        }
-                    }
-                    canvas.save()
-                    image_view_.setImageBitmap(emojiPhoto)
+                if (mouth != null) {
+                    val mouthPosition = mouth.position
+                    var bitmap = BitmapFactory.decodeResource(resources, R.drawable.ic_mouse_black_24dp)
+                    val width = bitmap.width * 4
+                    val height = bitmap.height * 4
+                    bitmap = Bitmap.createScaledBitmap(bitmap, width, height, false)
+                    canvas.drawBitmap(bitmap, mouthPosition.x - width, mouthPosition.y - height / 2, null)
+                }
+            }
+            canvas.save()
+            image_view_.setImageBitmap(emojiPhoto)
 
-                })
+        }
     }
 }
