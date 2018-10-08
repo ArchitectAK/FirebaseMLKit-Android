@@ -1,1 +1,1 @@
-include ':textRecognition', ':facedetection'
+include ':textRecognition', ':facedetection', ':barcodescanner'
