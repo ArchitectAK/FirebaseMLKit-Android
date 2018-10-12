@@ -2,8 +2,13 @@ package com.cogitator.barcodescanner
 
 import android.graphics.Bitmap
 import android.os.Bundle
+import android.support.design.widget.BottomSheetBehavior
 import android.view.View
 import android.widget.Toast
+import com.google.firebase.ml.vision.FirebaseVision
+import com.google.firebase.ml.vision.barcode.FirebaseVisionBarcode
+import com.google.firebase.ml.vision.barcode.FirebaseVisionBarcodeDetectorOptions
+import com.google.firebase.ml.vision.common.FirebaseVisionImage
 import kotlinx.android.synthetic.main.activity_barcode.*
 import kotlinx.android.synthetic.main.activity_main.*
 

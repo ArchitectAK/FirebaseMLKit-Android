@@ -2,6 +2,7 @@ package com.cogitator.barcodescanner
 
 import android.os.Bundle
 import android.support.annotation.LayoutRes
+import android.support.design.widget.BottomSheetBehavior
 import android.support.design.widget.CoordinatorLayout
 import android.support.v7.app.AppCompatActivity
 import android.view.Gravity
@@ -63,7 +64,7 @@ abstract class BaseCameraActivity : AppCompatActivity(), View.OnClickListener {
         cameraView.visibility = View.GONE
     }
 
-    protected fun hidePreview() {
+    private fun hidePreview() {
         framePreview.visibility = View.GONE
         cameraView.visibility = View.VISIBLE
     }
