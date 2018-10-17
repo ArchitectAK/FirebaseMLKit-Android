@@ -26,7 +26,7 @@ class BarCodeReaderActivity : BaseCameraActivity() {
         fabProgressCircle.show()
         cameraView.captureImage { cameraKitImage ->
             // Get the Bitmap from the captured shot
-            getQRCodeDetails(cameraKitImage.bitmap)
+            getQRCodeDetailsFromBitmap(cameraKitImage.bitmap)
             runOnUiThread {
                 showPreview()
                 imagePreview.setImageBitmap(cameraKitImage.bitmap)
@@ -34,7 +34,7 @@ class BarCodeReaderActivity : BaseCameraActivity() {
         }
     }
 
-    private fun getQRCodeDetails(bitmap: Bitmap) {
+    private fun getQRCodeDetailsFromBitmap(bitmap: Bitmap) {
         val options = FirebaseVisionBarcodeDetectorOptions.Builder()
                 .setBarcodeFormats(
                         FirebaseVisionBarcode.FORMAT_ALL_FORMATS)
@@ -42,6 +42,8 @@ class BarCodeReaderActivity : BaseCameraActivity() {
         val detector = FirebaseVision.getInstance().getVisionBarcodeDetector(options)
         val image = FirebaseVisionImage.fromBitmap(bitmap)
         detector.detectInImage(image)
+
+
                 .addOnSuccessListener {
                     for (firebaseBarcode in it) {
 
